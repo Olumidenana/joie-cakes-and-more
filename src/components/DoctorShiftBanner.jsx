@@ -1,55 +1,48 @@
 import React from 'react';
-import { Stethoscope, Clock, ShieldCheck, Sparkles, MessageSquareHeart } from 'lucide-react';
+import { Heart, Stethoscope, Sparkles, MessageCircle, Clock } from 'lucide-react';
 
 export function DoctorShiftBanner({ doctorShift, onOpenConcierge }) {
   return (
-    <section className="bg-gradient-to-r from-stone-900 via-amber-950 to-stone-900 text-white border-b border-amber-900/40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 sm:py-4">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
-          {/* Left indicator */}
-          <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-600/30 border border-amber-500/40 flex items-center justify-center shrink-0 mt-0.5">
-              <Stethoscope className="w-5 h-5 text-amber-300" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="font-semibold text-amber-200 text-sm tracking-wide flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  {doctorShift === 'hospital' 
-                    ? 'Dr. Joie is on Medical Hospital Rounds / Surgery Service' 
-                    : 'Dr. Joie is Overseeing Kitchen Production in Ondo Hub'}
-                </span>
-                <span className="text-[11px] bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-full font-mono-code">
-                  Zero Delay Auto-Pilot
-                </span>
-              </div>
-              <p className="text-xs text-stone-300 mt-0.5 leading-relaxed">
-                {doctorShift === 'hospital' ? (
-                  <>
-                    No need to wait for a WhatsApp DM reply while Dr. Joie attends to hospital patients. 
-                    This system <strong>automatically reserves kitchen prep slots, coordinates trusted Ondo bikemen</strong>, and secures your treats!
-                  </>
-                ) : (
-                  <>
-                    Dr. Joie is actively on ground at the Ondo Confectionery studio coordinating kitchen production and kilishi curing batches today.
-                  </>
-                )}
-              </p>
-            </div>
-          </div>
-
-          {/* Right quick help & Concierge trigger */}
-          <div className="flex items-center gap-2 self-stretch md:self-auto shrink-0">
-            <button
-              onClick={onOpenConcierge}
-              className="w-full md:w-auto flex items-center justify-center gap-1.5 bg-amber-600/30 hover:bg-amber-600/45 text-amber-100 border border-amber-500/50 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer shadow-xs"
-            >
-              <MessageSquareHeart className="w-4 h-4 text-amber-300" />
-              <span>Ask Dr. Joie’s Virtual Concierge</span>
-            </button>
+    <div className="bg-gradient-to-r from-[#3B175B] via-[#4F217A] to-[#3B175B] text-white border-b border-purple-900/40 py-2.5 px-4">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+        
+        {/* Left message */}
+        <div className="flex items-center gap-2.5 text-center md:text-left">
+          <span className="w-7 h-7 rounded-full bg-purple-400/20 border border-purple-300/30 flex items-center justify-center shrink-0">
+            <Stethoscope className="w-3.5 h-3.5 text-purple-200" />
+          </span>
+          <div>
+            <span className="font-semibold text-purple-100">
+              {doctorShift === 'hospital' ? (
+                <>
+                  <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 mr-1.5 animate-pulse" />
+                  Dr. Joie is on hospital rounds today —
+                </>
+              ) : (
+                <>
+                  <span className="inline-block w-2 h-2 rounded-full bg-purple-300 mr-1.5" />
+                  Dr. Joie is in the Ondo kitchen studio today —
+                </>
+              )}
+            </span>
+            <span className="text-purple-200/90 ml-1">
+              {doctorShift === 'hospital'
+                ? "No need to wait for a WhatsApp DM reply to secure your order! Pick your items, choose a delivery window, and our Ondo riders handle the rest."
+                : "Baking fresh cakes and sun-curing Northern Delicacies Kilishi batches right now."}
+            </span>
           </div>
         </div>
+
+        {/* Right prompt */}
+        <button
+          onClick={onOpenConcierge}
+          className="shrink-0 flex items-center gap-1.5 bg-purple-500/20 hover:bg-purple-500/35 text-purple-100 border border-purple-300/30 px-3 py-1.5 rounded-full text-[11px] font-medium transition-colors cursor-pointer"
+        >
+          <MessageCircle className="w-3.5 h-3.5 text-purple-300" />
+          <span>Have a question? Ask me here</span>
+        </button>
+
       </div>
-    </section>
+    </div>
   );
 }

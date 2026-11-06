@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Scale, Flame, ShieldAlert, Check, ShoppingBag, Info, Award, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Scale, Flame, Check, ShoppingBag, Award, Sparkles, CheckCircle2 } from 'lucide-react';
 import { formatNaira } from '../utils/formatters';
 
 export function KilishiSpecialFeature({ onAddToCart, isSoldOut = false }) {
@@ -84,31 +84,31 @@ export function KilishiSpecialFeature({ onAddToCart, isSoldOut = false }) {
   };
 
   return (
-    <section className="bg-gradient-to-br from-amber-950 via-stone-900 to-amber-950 text-white rounded-3xl p-6 sm:p-10 my-10 shadow-2xl border border-amber-800/40 relative overflow-hidden">
-      {/* Decorative background glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-amber-600/10 rounded-full blur-3xl pointer-events-none" />
+    <section className="bg-gradient-to-br from-[#2D0D45] via-[#3B155B] to-[#25083B] text-white rounded-3xl p-6 sm:p-10 my-10 shadow-2xl border border-purple-800/40 relative overflow-hidden">
+      {/* Soft lavender ambient glow */}
+      <div className="absolute top-0 right-0 w-80 h-80 bg-purple-500/15 rounded-full blur-3xl pointer-events-none" />
 
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-amber-800/50 pb-6 mb-8">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-purple-800/50 pb-6 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 bg-amber-800/60 border border-amber-600/40 px-3 py-1 rounded-full text-xs font-semibold text-amber-200 mb-2">
+          <div className="inline-flex items-center gap-2 bg-purple-500/25 border border-purple-400/40 px-3.5 py-1 rounded-full text-xs font-semibold text-purple-200 mb-2">
             <Scale className="w-3.5 h-3.5" />
-            <span>Northern Delicacies • Strictly Weighed in Kilograms (kg)</span>
+            <span>Northern Delicacies &bull; Measured Strictly in Kilograms (kg)</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold font-serif-luxury tracking-tight text-white">
             Authentic Beef Kilishi (Beef Jerky)
           </h2>
-          <p className="text-amber-200/80 text-sm sm:text-base mt-1 max-w-2xl">
+          <p className="text-purple-200/90 text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed">
             Thinly sliced deboned prime beef infused with stone-ground groundnut paste and roasted Yaji spices, 
             cured over glowing charcoal embers in Ondo. Packaged in our official Northern Delicacies window pouches.
           </p>
         </div>
 
-        <div className="bg-amber-900/40 border border-amber-700/50 rounded-2xl p-3 text-right shrink-0">
-          <div className="text-[11px] text-amber-300 font-mono-code uppercase tracking-wider">Official Packaging</div>
-          <div className="text-xs font-semibold text-stone-200 flex items-center gap-1.5 justify-end mt-0.5">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Freshly Made • Quality Ingredients • Made with Love</span>
+        <div className="bg-purple-900/40 border border-purple-700/50 rounded-2xl p-3 text-right shrink-0">
+          <div className="text-[11px] text-purple-300 font-mono-code uppercase tracking-wider">Official Packaging</div>
+          <div className="text-xs font-semibold text-purple-100 flex items-center gap-1.5 justify-end mt-0.5">
+            <CheckCircle2 className="w-3.5 h-3.5 text-purple-300" />
+            <span>Freshly Made &bull; Quality Ingredients</span>
           </div>
         </div>
       </div>
@@ -120,9 +120,9 @@ export function KilishiSpecialFeature({ onAddToCart, isSoldOut = false }) {
         <div className="lg:col-span-7 space-y-6">
           {/* Step 1: Kilogram Weight Picker */}
           <div>
-            <label className="text-xs uppercase tracking-wider font-bold text-amber-300 mb-3 flex items-center justify-between">
+            <label className="text-xs uppercase tracking-wider font-bold text-purple-300 mb-3 flex items-center justify-between">
               <span>1. Choose Weighed Kilogram Pack</span>
-              <span className="text-[11px] font-normal text-amber-200/70">Measured on certified medical scales</span>
+              <span className="text-[11px] font-normal text-purple-200/80">Certified scales &bull; Airtight pouch</span>
             </label>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -132,18 +132,18 @@ export function KilishiSpecialFeature({ onAddToCart, isSoldOut = false }) {
                   onClick={() => setSelectedKgIndex(idx)}
                   className={`relative p-3.5 rounded-2xl border transition-all cursor-pointer ${
                     selectedKgIndex === idx
-                      ? 'bg-amber-600 text-white border-amber-400 shadow-lg shadow-amber-900/30 ring-2 ring-amber-400/50 scale-[1.02]'
-                      : 'bg-stone-900/80 hover:bg-stone-800/90 text-stone-300 border-amber-900/60'
+                      ? 'bg-[#823BC6] text-white border-purple-300 shadow-lg shadow-purple-950/40 ring-2 ring-purple-400 scale-[1.02]'
+                      : 'bg-[#1F0730]/70 hover:bg-[#2A0E40] text-purple-200 border-purple-900/60'
                   }`}
                 >
                   {opt.popular && (
-                    <span className="absolute -top-2.5 right-3 bg-amber-400 text-stone-900 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                    <span className="absolute -top-2.5 right-3 bg-purple-300 text-[#25083B] text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider shadow-xs">
                       Popular
                     </span>
                   )}
                   <div className="text-xs font-mono-code opacity-80">{opt.sub}</div>
                   <div className="text-lg font-bold font-serif-luxury mt-0.5">{opt.weight}</div>
-                  <div className="text-sm font-semibold mt-1 text-amber-200 font-mono-code">
+                  <div className="text-sm font-semibold mt-1 text-purple-200 font-mono-code">
                     {formatNaira(opt.price)}
                   </div>
                   <div className="text-[10px] opacity-75 mt-1 border-t border-white/10 pt-1">
@@ -156,27 +156,27 @@ export function KilishiSpecialFeature({ onAddToCart, isSoldOut = false }) {
 
           {/* Step 2: Spice Level Profile */}
           <div>
-            <label className="text-xs uppercase tracking-wider font-bold text-amber-300 mb-2.5 flex items-center gap-1.5">
-              <Flame className="w-4 h-4 text-amber-400" />
+            <label className="text-xs uppercase tracking-wider font-bold text-purple-300 mb-2.5 flex items-center gap-1.5">
+              <Flame className="w-4 h-4 text-purple-400" />
               <span>2. Select Spice &amp; Pepper Intensity</span>
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               {[
                 { name: 'Traditional Mild Yaji', desc: 'Aromatic ginger & clove, balanced kick' },
                 { name: 'Suya Fire (Extra Hot)', desc: 'Heavy habanero & roasted chili peppers' },
-                { name: 'Honey Glazed Pepper', desc: 'Sweet pure honey glaze meets spicy dry rub' }
+                { name: 'Honey Glazed Pepper', desc: 'Pure sweet honey glaze meets spicy dry rub' }
               ].map((sp) => (
                 <button
                   key={sp.name}
                   onClick={() => setSelectedSpice(sp.name)}
                   className={`p-3 rounded-xl border text-left text-xs transition-all cursor-pointer ${
                     selectedSpice === sp.name
-                      ? 'bg-amber-800/80 border-amber-400 text-white font-medium'
-                      : 'bg-stone-900/50 border-stone-800 text-stone-400 hover:text-stone-200'
+                      ? 'bg-purple-800/80 border-purple-400 text-white font-medium'
+                      : 'bg-[#1F0730]/60 border-purple-950 text-purple-300 hover:text-white'
                   }`}
                 >
-                  <div className="font-semibold text-stone-100">{sp.name}</div>
-                  <div className="text-[10px] text-stone-400 mt-0.5">{sp.desc}</div>
+                  <div className="font-semibold text-purple-100">{sp.name}</div>
+                  <div className="text-[10px] text-purple-300/80 mt-0.5">{sp.desc}</div>
                 </button>
               ))}
             </div>
@@ -184,7 +184,7 @@ export function KilishiSpecialFeature({ onAddToCart, isSoldOut = false }) {
 
           {/* Step 3: Cut Style */}
           <div>
-            <label className="text-xs uppercase tracking-wider font-bold text-amber-300 mb-2.5 block">
+            <label className="text-xs uppercase tracking-wider font-bold text-purple-300 mb-2.5 block">
               3. Beef Cut &amp; Texture Preference
             </label>
             <div className="flex flex-wrap gap-2">
@@ -194,8 +194,8 @@ export function KilishiSpecialFeature({ onAddToCart, isSoldOut = false }) {
                   onClick={() => setSelectedCut(cut)}
                   className={`px-3 py-1.5 rounded-xl border text-xs cursor-pointer transition-colors ${
                     selectedCut === cut
-                      ? 'bg-amber-500 text-stone-950 font-bold border-amber-300'
-                      : 'bg-stone-900/60 border-stone-800 text-stone-300 hover:bg-stone-800'
+                      ? 'bg-purple-400 text-[#25083B] font-bold border-purple-300'
+                      : 'bg-[#1F0730]/60 border-purple-950 text-purple-200 hover:bg-purple-900/60'
                   }`}
                 >
                   {cut}
@@ -206,52 +206,52 @@ export function KilishiSpecialFeature({ onAddToCart, isSoldOut = false }) {
         </div>
 
         {/* Right Column: Visual Preview & Order Action */}
-        <div className="lg:col-span-5 bg-stone-900/90 rounded-2xl p-5 border border-amber-700/50 shadow-xl space-y-4">
-          <div className="relative h-56 rounded-xl overflow-hidden border border-amber-900/50 bg-stone-950">
+        <div className="lg:col-span-5 bg-[#200732]/95 rounded-2xl p-5 border border-purple-800/60 shadow-xl space-y-4">
+          <div className="relative h-56 rounded-xl overflow-hidden border border-purple-900/60 bg-[#160424]">
             <img
               src="/joie-kilishi-real.jpg"
               alt="Official Joie Northern Delicacies Kilishi Pouch"
               className="w-full h-full object-cover"
             />
-            <div className="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-xs px-2.5 py-1 rounded-lg text-[11px] font-mono-code text-amber-300">
+            <div className="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-xs px-2.5 py-1 rounded-lg text-[11px] font-mono-code text-purple-300">
               Selected: {activeOption.weight} ({activeOption.label})
             </div>
-            <div className="absolute bottom-2.5 right-2.5 bg-amber-600 text-white px-2.5 py-1 rounded-lg text-xs font-bold font-mono-code">
+            <div className="absolute bottom-2.5 right-2.5 bg-[#7E38C4] text-white px-2.5 py-1 rounded-lg text-xs font-bold font-mono-code">
               {formatNaira(activeOption.price)}
             </div>
           </div>
 
           {/* Specs breakdown */}
-          <div className="space-y-2 text-xs text-stone-300 bg-stone-950/60 p-3.5 rounded-xl border border-stone-800">
+          <div className="space-y-2 text-xs text-purple-200 bg-[#140321]/80 p-3.5 rounded-xl border border-purple-950">
             <div className="flex justify-between">
-              <span className="text-stone-400">Total Weighed:</span>
+              <span className="text-purple-300/70">Total Weighed:</span>
               <span className="font-bold text-white font-mono-code">{activeOption.weight}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-stone-400">Approx. Content:</span>
-              <span className="font-semibold text-amber-200">{activeOption.sheets}</span>
+              <span className="text-purple-300/70">Approx. Content:</span>
+              <span className="font-semibold text-purple-200">{activeOption.sheets}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-stone-400">Serving Guide:</span>
-              <span className="text-stone-200">{activeOption.servings}</span>
+              <span className="text-purple-300/70">Serving Guide:</span>
+              <span className="text-purple-100">{activeOption.servings}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-stone-400">Spice Blend:</span>
-              <span className="text-amber-300">{selectedSpice}</span>
+              <span className="text-purple-300/70">Spice Blend:</span>
+              <span className="text-purple-200 font-medium">{selectedSpice}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-stone-400">Packaging:</span>
-              <span className="text-stone-300">{activeOption.packaging}</span>
+              <span className="text-purple-300/70">Packaging:</span>
+              <span className="text-purple-100">{activeOption.packaging}</span>
             </div>
           </div>
 
           {/* Quantity and Add to Cart */}
           <div className="pt-2 flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2 bg-stone-800 border border-stone-700 rounded-xl px-2.5 py-1.5">
+            <div className="flex items-center gap-2 bg-[#2B0E44] border border-purple-800 rounded-xl px-2.5 py-1.5">
               <button
                 disabled={isSoldOut}
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="w-7 h-7 rounded-lg bg-stone-700 hover:bg-stone-600 text-white font-bold flex items-center justify-center cursor-pointer disabled:opacity-50"
+                className="w-7 h-7 rounded-lg bg-purple-900/80 hover:bg-purple-800 text-white font-bold flex items-center justify-center cursor-pointer disabled:opacity-50"
               >
                 -
               </button>
@@ -261,15 +261,15 @@ export function KilishiSpecialFeature({ onAddToCart, isSoldOut = false }) {
               <button
                 disabled={isSoldOut}
                 onClick={() => setQuantity(quantity + 1)}
-                className="w-7 h-7 rounded-lg bg-stone-700 hover:bg-stone-600 text-white font-bold flex items-center justify-center cursor-pointer disabled:opacity-50"
+                className="w-7 h-7 rounded-lg bg-purple-900/80 hover:bg-purple-800 text-white font-bold flex items-center justify-center cursor-pointer disabled:opacity-50"
               >
                 +
               </button>
             </div>
 
             <div className="text-right">
-              <div className="text-[11px] text-stone-400">Subtotal</div>
-              <div className="text-lg font-bold text-amber-300 font-mono-code">
+              <div className="text-[11px] text-purple-300/80">Subtotal</div>
+              <div className="text-lg font-bold text-purple-200 font-mono-code">
                 {formatNaira(totalPrice)}
               </div>
             </div>
@@ -287,21 +287,21 @@ export function KilishiSpecialFeature({ onAddToCart, isSoldOut = false }) {
           ) : (
             <button
               onClick={handleAdd}
-              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-bold py-3.5 px-4 rounded-xl shadow-lg transition-transform active:scale-95 cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#8B42D6] to-[#A45DE6] hover:from-[#7C36C7] hover:to-[#934CD5] text-white font-bold py-3.5 px-4 rounded-xl shadow-lg transition-transform active:scale-95 cursor-pointer text-xs sm:text-sm"
             >
-              <ShoppingBag className="w-5 h-5 text-stone-900" />
+              <ShoppingBag className="w-4 h-4 text-purple-100" />
               <span>Add {quantity}x ({activeOption.weight}) to Basket</span>
             </button>
           )}
 
           {addedNotice && (
-            <div className="p-2.5 bg-emerald-900/60 border border-emerald-500 text-emerald-200 text-xs rounded-xl flex items-center gap-2 justify-center animate-bounce">
-              <Check className="w-4 h-4 text-emerald-400" />
+            <div className="p-2.5 bg-purple-950/90 border border-purple-400 text-purple-200 text-xs rounded-xl flex items-center gap-2 justify-center animate-bounce">
+              <Check className="w-4 h-4 text-purple-300" />
               <span>Added {activeOption.weight} Northern Delicacies Kilishi to your basket!</span>
             </div>
           )}
 
-          <p className="text-[11px] text-stone-400 text-center">
+          <p className="text-[11px] text-purple-300/80 text-center">
             🛵 Ondo Delivery: Insulated packaging keeps your Kilishi crispy &amp; dry during delivery.
           </p>
         </div>

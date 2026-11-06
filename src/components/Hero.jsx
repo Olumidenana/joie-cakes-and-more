@@ -1,66 +1,65 @@
 import React from 'react';
-import { Sparkles, Scale, Bike, ShieldCheck, HeartHandshake, ArrowRight, Clock, Star } from 'lucide-react';
+import { Scale, Bike, ArrowRight, Clock, Star, Sparkles, Heart } from 'lucide-react';
+import { BUSINESS_INFO } from '../data/menuData';
 
 export function Hero({ onExploreMenu, onGoKilishi, onOpenConcierge }) {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-[#FAF5EE] via-[#F5ECE0] to-[#FAF7F2] border-b border-stone-200/60 pt-6 pb-12 sm:pb-16">
-      {/* Decorative background glow */}
-      <div className="absolute top-0 right-10 -z-10 w-96 h-96 bg-amber-200/40 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-10 -z-10 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+    <div className="relative overflow-hidden bg-gradient-to-b from-[#FBF9FD] via-[#F4EDFC] to-[#FAF8FD] border-b border-purple-100/80 pt-6 pb-12 sm:pb-16">
+      {/* Delicate lilac and lavender ambient glow */}
+      <div className="absolute top-0 right-10 -z-10 w-96 h-96 bg-purple-200/50 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 -z-10 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Left Column: Headlines & Call to Actions */}
+          {/* Left Column */}
           <div className="lg:col-span-7 space-y-5">
-            <div className="inline-flex items-center gap-2 bg-amber-100/90 border border-amber-300/80 px-3 py-1 rounded-full text-xs font-semibold text-amber-950 shadow-2xs">
-              <Sparkles className="w-3.5 h-3.5 text-amber-700" />
-              <span>Physician-Precision Hygiene • Ondo Confectionery &amp; Gourmet Hub</span>
+            <div className="inline-flex items-center gap-2 bg-purple-100/80 border border-purple-200 px-3.5 py-1 rounded-full text-xs font-semibold text-purple-950">
+              <span className="w-2 h-2 rounded-full bg-purple-600 animate-pulse" />
+              <span>Northern Delicacies &bull; Handcrafted Confectionery in Ondo</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold text-stone-900 leading-[1.15] font-serif-luxury">
-              Luxury Vanilla Cakes, <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-900 via-amber-800 to-amber-700">
+            <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold text-stone-900 leading-[1.18] font-serif-luxury">
+              Fresh Vanilla Cakes, <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#591F8F] via-[#7A36B8] to-[#9955DC]">
                 Kilishi by the Kilogram
-              </span> &amp; Gourmet Pastries.
+              </span> &amp; Sweet Treats.
             </h1>
 
             <p className="text-stone-600 text-sm sm:text-base leading-relaxed max-w-2xl">
-              Welcome to <strong>Joie Cakes &amp; More</strong> — founded by Dr. Joie (MD). Whether you’re craving 
-              our authentic spiced <strong>beef kilishi measured strictly in kilograms (0.25kg to 5kg)</strong>, 
-              custom celebratory vanilla &amp; red velvet cakes, creamy Greek yoghurts, layered fruit parfaits, or 
-              full event management across Ondo State, our automated system schedules your delivery effortlessly 
-              while Dr. Joie attends to hospital rounds!
+              Welcome to <strong>Joie Cakes &amp; More</strong> — where authentic culinary craft meets hospital-grade precision. 
+              Founded by <strong>Dr. Joie</strong>, we bring you sun-cured beef kilishi strictly measured in kilograms 
+              (0.25kg to 5kg), delicate vanilla buttercream cakes, thick Greek yoghurts, layered fruit parfaits, and luxury event styling across Ondo State.
             </p>
 
             {/* Value chips */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1">
-              <div className="flex items-center gap-2 p-2 bg-white/80 border border-stone-200 rounded-xl shadow-2xs">
-                <div className="p-1.5 rounded-lg bg-amber-50 text-amber-800">
+              <div className="flex items-center gap-2.5 p-2.5 bg-white/90 border border-purple-100 rounded-2xl shadow-2xs">
+                <div className="p-2 rounded-xl bg-purple-50 text-purple-800">
                   <Scale className="w-4 h-4" />
                 </div>
                 <div className="text-xs">
-                  <div className="font-bold text-stone-800">Kilishi in Kg</div>
+                  <div className="font-bold text-stone-900">Kilishi by Kg</div>
                   <div className="text-stone-500 text-[10px]">0.25kg to 5kg Tiers</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 p-2 bg-white/80 border border-stone-200 rounded-xl shadow-2xs">
-                <div className="p-1.5 rounded-lg bg-amber-50 text-amber-800">
+              <div className="flex items-center gap-2.5 p-2.5 bg-white/90 border border-purple-100 rounded-2xl shadow-2xs">
+                <div className="p-2 rounded-xl bg-purple-50 text-purple-800">
                   <Clock className="w-4 h-4" />
                 </div>
                 <div className="text-xs">
-                  <div className="font-bold text-stone-800">Urgency Scheduler</div>
+                  <div className="font-bold text-stone-900">Urgency Options</div>
                   <div className="text-stone-500 text-[10px]">Express vs Slot Cap</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 p-2 bg-white/80 border border-stone-200 rounded-xl shadow-2xs col-span-2 sm:col-span-1">
-                <div className="p-1.5 rounded-lg bg-emerald-50 text-emerald-800">
+              <div className="flex items-center gap-2.5 p-2.5 bg-white/90 border border-purple-100 rounded-2xl shadow-2xs col-span-2 sm:col-span-1">
+                <div className="p-2 rounded-xl bg-purple-50 text-purple-800">
                   <Bike className="w-4 h-4" />
                 </div>
                 <div className="text-xs">
-                  <div className="font-bold text-stone-800">Ondo Bikemen</div>
+                  <div className="font-bold text-stone-900">Ondo Bikemen</div>
                   <div className="text-stone-500 text-[10px]">Live Minutes ETA</div>
                 </div>
               </div>
@@ -70,109 +69,95 @@ export function Hero({ onExploreMenu, onGoKilishi, onOpenConcierge }) {
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <button
                 onClick={onExploreMenu}
-                className="flex items-center gap-2 bg-stone-900 hover:bg-stone-800 text-white px-5 py-3 rounded-xl font-semibold text-sm shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
+                className="flex items-center gap-2 bg-[#42176B] hover:bg-[#341154] text-white px-5 py-3 rounded-xl font-semibold text-xs sm:text-sm shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
               >
-                <span>Order Treats &amp; Cakes</span>
+                <span>Order Cakes &amp; Treats</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
               <button
                 onClick={onGoKilishi}
-                className="flex items-center gap-2 bg-amber-800 hover:bg-amber-700 text-white px-5 py-3 rounded-xl font-semibold text-sm shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
+                className="flex items-center gap-2 bg-[#7534AF] hover:bg-[#652C97] text-white px-5 py-3 rounded-xl font-semibold text-xs sm:text-sm shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
               >
-                <span>⚖️ Kilishi Kg Calculator</span>
+                <span>⚖️ Kilishi in Kilograms</span>
               </button>
 
               <button
                 onClick={onOpenConcierge}
-                className="flex items-center gap-2 bg-white hover:bg-stone-50 text-stone-800 border border-stone-300 px-4 py-3 rounded-xl font-medium text-sm shadow-2xs transition-colors cursor-pointer"
+                className="flex items-center gap-2 bg-white hover:bg-purple-50 text-purple-950 border border-purple-200 px-4 py-3 rounded-xl font-medium text-xs sm:text-sm shadow-2xs transition-colors cursor-pointer"
               >
                 <span>Ask Dr. Joie Concierge</span>
               </button>
             </div>
           </div>
 
-          {/* Right Column: Hero Visual Card with Showcase & Testimonial */}
+          {/* Right Column: Hero Visual Card showcasing actual packaging */}
           <div className="lg:col-span-5">
             <div className="relative">
-              {/* Main aesthetic card */}
-              <div className="relative bg-white rounded-3xl p-3 sm:p-4 shadow-xl border border-stone-200/90 overflow-hidden">
-                <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden">
+              <div className="relative bg-white rounded-3xl p-3 sm:p-4 shadow-xl border border-purple-100 overflow-hidden">
+                <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden bg-purple-50">
                   <img
                     src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80"
-                    alt="Joie Velvet Cake & Treats"
+                    alt="Joie Vanilla Dream Cake"
                     className="w-full h-full object-cover transform hover:scale-105 transition-duration-700 transition-transform"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-stone-900/20 to-transparent flex flex-col justify-end p-4 text-white">
-                    <span className="text-[11px] font-bold tracking-wider uppercase text-amber-300 bg-amber-900/60 backdrop-blur-xs px-2 py-0.5 rounded w-fit mb-1">
-                      Doctor Crafted • Hospital-Grade Hygiene
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#250B3B]/85 via-[#250B3B]/25 to-transparent flex flex-col justify-end p-4 text-white">
+                    <span className="text-[10px] font-bold tracking-wider uppercase text-purple-200 bg-purple-950/70 backdrop-blur-xs px-2.5 py-0.5 rounded-full w-fit mb-1">
+                      Dr. Joie Confectionery &bull; Ondo
                     </span>
-                    <h3 className="text-lg font-bold font-serif-luxury">Fresh Cakes &amp; Sun-Cured Kilishi</h3>
-                    <p className="text-xs text-stone-200">
-                      Dispatched across Ondo City, UNIMED medical campus, and Akure highway daily.
+                    <h3 className="text-lg font-bold font-serif-luxury">Fresh Cakes &amp; Northern Delicacies</h3>
+                    <p className="text-xs text-purple-100/90">
+                      Dispatched same-day to UNIMED Teaching Hospital, Ondo Town &amp; Akure.
                     </p>
                   </div>
                 </div>
 
-                {/* Floating pill: Authentic Northern Delicacies Kilishi & Donkwa */}
-                <div className="mt-3 p-3 bg-amber-50/90 rounded-2xl border border-amber-200 flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2.5">
+                {/* Northern Delicacies Kilishi Pill with actual pouch photo */}
+                <div className="mt-3 p-3 bg-purple-50/80 rounded-2xl border border-purple-200/80 flex items-center justify-between gap-2.5">
+                  <div className="flex items-center gap-3">
                     <img 
                       src="/joie-kilishi-real.jpg" 
-                      alt="Northern Delicacies Kilishi Pouch" 
-                      className="w-11 h-11 rounded-xl object-cover border border-amber-300 shrink-0 shadow-2xs"
+                      alt="Northern Delicacies Pouch" 
+                      className="w-12 h-12 rounded-xl object-cover border border-purple-300 shadow-2xs shrink-0"
                     />
                     <div>
-                      <div className="text-xs font-bold text-amber-950 flex items-center gap-1.5">
-                        <span>Northern Delicacies (By Kg)</span>
-                        <span className="text-[10px] bg-amber-200 text-amber-900 font-bold px-1.5 py-0.2 rounded">Official</span>
+                      <div className="text-xs font-bold text-purple-950 flex items-center gap-1.5">
+                        <span>Northern Delicacies</span>
+                        <span className="text-[10px] bg-purple-200 text-purple-900 font-bold px-1.5 py-0.2 rounded-full">Official</span>
                       </div>
-                      <div className="text-[11px] text-amber-800">Freshly Made &bull; Quality Ingredients &bull; Made with Love</div>
+                      <div className="text-[11px] text-purple-800">Kilishi (Beef Jerky) &bull; 0.25kg to 5kg</div>
                     </div>
                   </div>
                   <button
                     onClick={onGoKilishi}
-                    className="text-xs font-bold bg-amber-800 text-white px-2.5 py-1.5 rounded-lg hover:bg-amber-700 cursor-pointer shadow-xs"
+                    className="text-xs font-bold bg-[#6D32A3] text-white px-3 py-1.5 rounded-xl hover:bg-[#5C278C] cursor-pointer shadow-xs shrink-0"
                   >
                     Weigh Kg
                   </button>
                 </div>
 
-                {/* Trusted Dispatch Rider Pill */}
-                <div className="mt-2.5 p-3 bg-stone-50 rounded-2xl border border-stone-200 flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <img 
-                      src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80" 
-                      alt="Rider Kola" 
-                      className="w-9 h-9 rounded-full object-cover border-2 border-white shadow-xs"
-                    />
-                    <div>
-                      <div className="text-xs font-bold text-stone-800 flex items-center gap-1">
-                        <span>Rider Kola (Trusted Ondo Bike 01)</span>
-                        <span className="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.2 rounded font-semibold">Active</span>
-                      </div>
-                      <div className="text-[11px] text-stone-500">Live minute countdown &amp; Paystack verified</div>
-                    </div>
+                {/* Rider delivery indicator */}
+                <div className="mt-2.5 p-2.5 bg-stone-50 rounded-2xl border border-stone-200/80 flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                    <span className="text-stone-700 font-medium">Trusted Ondo Bikemen active</span>
                   </div>
-                  <div className="text-right">
-                    <div className="text-xs font-bold text-amber-900 font-mono-code">25 Min ETA</div>
-                    <div className="text-[10px] text-stone-400">Ondo Central</div>
-                  </div>
+                  <span className="text-purple-900 font-bold font-mono-code">25 Min ETA</span>
                 </div>
 
               </div>
 
-              {/* Decorative rating pill */}
-              <div className="absolute -bottom-3 -right-3 bg-white border border-stone-200 shadow-lg px-3.5 py-2 rounded-2xl flex items-center gap-2">
-                <div className="flex text-amber-500">
+              {/* Rating badge */}
+              <div className="absolute -bottom-3 -right-3 bg-white border border-purple-100 shadow-lg px-3.5 py-2 rounded-2xl flex items-center gap-2">
+                <div className="flex text-amber-400">
                   <Star className="w-3.5 h-3.5 fill-current" />
                   <Star className="w-3.5 h-3.5 fill-current" />
                   <Star className="w-3.5 h-3.5 fill-current" />
                   <Star className="w-3.5 h-3.5 fill-current" />
                   <Star className="w-3.5 h-3.5 fill-current" />
                 </div>
-                <span className="text-xs font-bold text-stone-800">4.96/5.0</span>
-                <span className="text-[10px] text-stone-500">(1,240+ Orders)</span>
+                <span className="text-xs font-bold text-stone-900">4.98</span>
+                <span className="text-[10px] text-stone-500">(1,400+ Orders)</span>
               </div>
             </div>
           </div>

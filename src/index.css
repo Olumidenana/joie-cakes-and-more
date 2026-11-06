@@ -3,6 +3,8 @@
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #FAF8FD;
+    color: #2D2338;
   }
   h1, h2, h3, .font-serif-luxury {
     font-family: 'Playfair Display', Georgia, serif;
@@ -12,27 +14,50 @@
   }
 }
 
+/* Light purple / lavender theme utilities */
+.bg-joie-lavender-light {
+  background-color: #F8F4FD;
+}
+.bg-joie-lavender {
+  background-color: #EFE7FA;
+}
+.bg-joie-purple {
+  background-color: #7E45B8;
+}
+.bg-joie-plum {
+  background-color: #381559;
+}
+.text-joie-plum {
+  color: #341254;
+}
+.text-joie-purple {
+  color: #7A3FA8;
+}
+.border-joie-purple {
+  border-color: #E2D3F5;
+}
+
 /* Custom scrollbars */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F3ECE2;
+  background: #F3EDFA;
 }
 ::-webkit-scrollbar-thumb {
-  background: #CDBBA7;
+  background: #D5C2EC;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #B39B82;
+  background: #BFA4DF;
 }
 
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.9; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.03); }
+@keyframes gentlePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.92; transform: scale(1.02); }
 }
 
-.animate-glow {
-  animation: pulseGlow 2.5s infinite ease-in-out;
+.animate-gentle {
+  animation: gentlePulse 3s infinite ease-in-out;
 }

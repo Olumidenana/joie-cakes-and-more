@@ -1,5 +1,6 @@
 import React from 'react';
-import { ShoppingBag, Stethoscope, Sparkles, Bike, MessageCircle, ShieldCheck, Clock, UserCheck } from 'lucide-react';
+import { ShoppingBag, Stethoscope, Sparkles, Bike, MessageCircle, Camera } from 'lucide-react';
+import { BUSINESS_INFO } from '../data/menuData';
 
 export function Navbar({ 
   cartCount, 
@@ -13,76 +14,84 @@ export function Navbar({
   activeOrderCount
 }) {
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200/80 shadow-xs">
-      {/* Top micro-bar for Doctor's Notice & Location */}
-      <div className="bg-stone-900 text-stone-200 text-xs py-1.5 px-4">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-purple-100 shadow-xs">
+      {/* Top micro-bar for Ondo State location & doctor status */}
+      <div className="bg-[#2D1245] text-purple-200 text-xs py-1 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-2">
-            <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
-            <span className="font-medium text-emerald-300">Ondo State Delivery Hub:</span>
-            <span className="text-stone-300">Ondo Town • UNIMED Zone • Adeyemi Axis • Akure Express</span>
+          <div className="flex items-center gap-2 text-[11px]">
+            <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
+            <span className="font-medium text-purple-200">Ondo City Delivery Hub:</span>
+            <span className="text-purple-300/80">Ondo Town • UNIMED Zone • Adeyemi Axis • Akure Shuttle</span>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1.5 bg-stone-800/80 px-2 py-0.5 rounded-full border border-stone-700 text-stone-300">
-              <Stethoscope className="w-3.5 h-3.5 text-amber-400" />
-              <span>Dr. Joie: <strong className="text-amber-200">{doctorShift === 'hospital' ? 'Hospital Duty (Auto-Pilot Active)' : 'At Kitchen Hub'}</strong></span>
-            </div>
-            
+          <div className="flex items-center gap-3 text-[11px]">
+            <a
+              href="https://instagram.com/joiescakes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:text-white transition-colors"
+            >
+              <Camera className="w-3 h-3 text-purple-300" />
+              <span>@joiescakes</span>
+            </a>
+
+            <span className="text-purple-400/50">|</span>
+
             <button
               onClick={onOpenAdmin}
-              className="hover:text-amber-300 underline text-[11px] cursor-pointer transition-colors"
+              className="hover:text-purple-100 underline text-[11px] cursor-pointer transition-colors"
             >
-              Doctor's Command Portal
+              Doctor's Shift Portal
             </button>
           </div>
         </div>
       </div>
 
       {/* Main navigation */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-        {/* Brand */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+        
+        {/* Brand identity */}
         <div 
           onClick={() => setActiveTab('menu')}
           className="flex items-center gap-3 cursor-pointer group"
         >
-          <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-800 via-amber-700 to-amber-600 flex items-center justify-center text-white shadow-md shadow-amber-900/10 group-hover:scale-105 transition-transform">
-            <Sparkles className="w-6 h-6 text-amber-200" />
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-[#6C34A3] via-[#8545C6] to-[#A467E0] flex items-center justify-center text-white shadow-md shadow-purple-900/10 group-hover:scale-105 transition-transform">
+            <span className="font-serif-luxury text-xl font-bold italic">J</span>
           </div>
           <div>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-2">
               <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-stone-900 font-serif-luxury">
-                Joie Cakes <span className="text-amber-800 font-light">&amp; More</span>
+                Joie Cakes <span className="text-purple-800 font-light">&amp; More</span>
               </h1>
-              <span className="text-[10px] uppercase font-bold tracking-widest bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded">
-                Conglomerate
+              <span className="text-[10px] uppercase font-bold tracking-wider bg-purple-100 text-purple-900 px-2 py-0.5 rounded-full">
+                Ondo
               </span>
             </div>
-            <p className="text-xs text-stone-500 font-medium">
-              Cakes • Kilishi by Kg • Yoghurts • Pastries • Event Styling (Ondo)
+            <p className="text-[11px] text-stone-500 font-medium">
+              Northern Delicacies (Kilishi by Kg) • Custom Cakes • Greek Yoghurt &amp; Events
             </p>
           </div>
         </div>
 
-        {/* Navigation Tabs */}
-        <nav className="hidden md:flex items-center gap-1 bg-stone-100/80 p-1 rounded-full border border-stone-200 text-sm font-medium text-stone-600">
+        {/* Desktop Navigation Tabs */}
+        <nav className="hidden md:flex items-center gap-1.5 bg-purple-50/70 p-1 rounded-full border border-purple-100 text-xs font-semibold text-stone-600">
           <button
             onClick={() => setActiveTab('menu')}
-            className={`px-3.5 py-1.5 rounded-full transition-all cursor-pointer ${
+            className={`px-4 py-2 rounded-full transition-all cursor-pointer ${
               activeTab === 'menu' 
-                ? 'bg-white text-stone-900 shadow-xs font-semibold' 
-                : 'hover:text-stone-900'
+                ? 'bg-white text-purple-950 shadow-xs font-bold' 
+                : 'hover:text-purple-900'
             }`}
           >
-            Treats &amp; Kilishi Menu
+            Treats &amp; Menu
           </button>
           
           <button
             onClick={() => setActiveTab('kilishi-calculator')}
-            className={`px-3.5 py-1.5 rounded-full transition-all cursor-pointer flex items-center gap-1 ${
+            className={`px-4 py-2 rounded-full transition-all cursor-pointer flex items-center gap-1.5 ${
               activeTab === 'kilishi-calculator' 
-                ? 'bg-amber-800 text-white shadow-xs font-semibold' 
-                : 'hover:text-amber-800'
+                ? 'bg-[#6D34A5] text-white shadow-xs font-bold' 
+                : 'hover:text-purple-900'
             }`}
           >
             <span>⚖️ Kilishi in Kg</span>
@@ -90,23 +99,23 @@ export function Navbar({
 
           <button
             onClick={() => setActiveTab('events')}
-            className={`px-3.5 py-1.5 rounded-full transition-all cursor-pointer ${
+            className={`px-4 py-2 rounded-full transition-all cursor-pointer ${
               activeTab === 'events' 
-                ? 'bg-white text-stone-900 shadow-xs font-semibold' 
-                : 'hover:text-stone-900'
+                ? 'bg-white text-purple-950 shadow-xs font-bold' 
+                : 'hover:text-purple-900'
             }`}
           >
-            Events &amp; Catering
+            Events &amp; Dessert Bars
           </button>
 
           <button
             onClick={onOpenTracker}
-            className="px-3.5 py-1.5 rounded-full transition-all hover:text-stone-900 cursor-pointer flex items-center gap-1.5"
+            className="px-4 py-2 rounded-full transition-all hover:text-purple-950 cursor-pointer flex items-center gap-1.5"
           >
-            <Bike className="w-4 h-4 text-amber-700" />
+            <Bike className="w-3.5 h-3.5 text-purple-700" />
             <span>Track Bikeman</span>
             {activeOrderCount > 0 && (
-              <span className="bg-amber-600 text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full animate-pulse">
+              <span className="bg-purple-600 text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full">
                 {activeOrderCount}
               </span>
             )}
@@ -118,22 +127,21 @@ export function Navbar({
           {/* Ask Concierge */}
           <button
             onClick={onOpenConcierge}
-            className="hidden sm:flex items-center gap-1.5 bg-amber-50 hover:bg-amber-100/80 text-amber-900 px-3 py-2 rounded-xl text-xs font-semibold border border-amber-200 transition-colors cursor-pointer"
-            title="Ask Dr. Joie's Virtual Concierge"
+            className="hidden sm:flex items-center gap-1.5 bg-purple-50 hover:bg-purple-100/90 text-purple-900 px-3.5 py-2 rounded-xl text-xs font-semibold border border-purple-200 transition-colors cursor-pointer"
           >
-            <MessageCircle className="w-4 h-4 text-amber-700" />
+            <MessageCircle className="w-3.5 h-3.5 text-purple-700" />
             <span>Ask Concierge</span>
           </button>
 
           {/* Cart Trigger */}
           <button
             onClick={onOpenCart}
-            className="relative flex items-center gap-2 bg-gradient-to-r from-amber-800 to-amber-900 hover:from-amber-700 hover:to-amber-800 text-white px-4 py-2 rounded-xl font-medium text-sm shadow-sm transition-transform active:scale-95 cursor-pointer"
+            className="relative flex items-center gap-2 bg-gradient-to-r from-[#4E1E7B] to-[#6829A4] hover:from-[#43196B] hover:to-[#5B2391] text-white px-4 py-2 rounded-xl font-medium text-xs sm:text-sm shadow-sm transition-transform active:scale-95 cursor-pointer"
           >
-            <ShoppingBag className="w-4 h-4" />
+            <ShoppingBag className="w-4 h-4 text-purple-200" />
             <span className="hidden sm:inline">My Basket</span>
             {cartCount > 0 && (
-              <span className="bg-white text-amber-900 font-bold text-xs px-2 py-0.5 rounded-full shadow-xs">
+              <span className="bg-white text-purple-900 font-bold text-xs px-2 py-0.5 rounded-full shadow-2xs">
                 {cartCount}
               </span>
             )}
@@ -142,29 +150,29 @@ export function Navbar({
       </div>
 
       {/* Mobile nav pills */}
-      <div className="flex md:hidden items-center justify-around border-t border-stone-200 px-2 py-2 bg-stone-50 text-xs font-medium">
+      <div className="flex md:hidden items-center justify-around border-t border-purple-100 px-2 py-2 bg-purple-50/50 text-xs font-medium">
         <button
           onClick={() => setActiveTab('menu')}
-          className={`px-2.5 py-1 rounded-full ${activeTab === 'menu' ? 'bg-amber-800 text-white font-semibold' : 'text-stone-700'}`}
+          className={`px-3 py-1 rounded-full ${activeTab === 'menu' ? 'bg-[#6D34A5] text-white font-semibold' : 'text-stone-700'}`}
         >
           Menu
         </button>
         <button
           onClick={() => setActiveTab('kilishi-calculator')}
-          className={`px-2.5 py-1 rounded-full ${activeTab === 'kilishi-calculator' ? 'bg-amber-800 text-white font-semibold' : 'text-stone-700'}`}
+          className={`px-3 py-1 rounded-full ${activeTab === 'kilishi-calculator' ? 'bg-[#6D34A5] text-white font-semibold' : 'text-stone-700'}`}
         >
           ⚖️ Kilishi (Kg)
         </button>
         <button
           onClick={onOpenTracker}
-          className="px-2.5 py-1 text-stone-700 flex items-center gap-1"
+          className="px-3 py-1 text-stone-700 flex items-center gap-1"
         >
-          <Bike className="w-3.5 h-3.5 text-amber-700" />
+          <Bike className="w-3.5 h-3.5 text-purple-700" />
           <span>Bikeman ({activeOrderCount})</span>
         </button>
         <button
           onClick={onOpenConcierge}
-          className="px-2.5 py-1 text-amber-800 font-semibold flex items-center gap-1"
+          className="px-3 py-1 text-purple-800 font-semibold flex items-center gap-1"
         >
           <MessageCircle className="w-3.5 h-3.5" />
           <span>Concierge</span>
