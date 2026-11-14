@@ -20,6 +20,7 @@ import {
 
 import { INITIAL_PRODUCTS, BUSINESS_INFO, ONDO_LOCATIONS, DELIVERY_TIME_SLOTS, TRUSTED_BIKEMEN } from './data/menuData';
 import { formatNaira } from './utils/formatters';
+import { logOrderToWebhook } from './utils/sheetsLogger';
 
 import { Navbar } from './components/Navbar';
 import { DoctorShiftBanner } from './components/DoctorShiftBanner';
@@ -51,6 +52,25 @@ export default function App() {
 
   // Doctor shift status: 'hospital' (busy on hospital rounds) vs 'kitchen'
   const [doctorShift, setDoctorShift] = useState('hospital');
+
+  // Google Sheets Webhook URL integration (persisted in localStorage)
+  const [sheetsWebhookUrl, setSheetsWebhookUrl] = useState(() => {
+    try {
+      return localStorage.getItem('joie_sheets_webhook_url') || '';
+    } catch {
+      return '';
+    }
+  });
+
+  useEffect(() => {
+    try {
+      if (sheetsWebhookUrl) {
+        localStorage.setItem('joie_sheets_webhook_url', sheetsWebhookUrl);
+      }
+    } catch (e) {
+      console.warn('LocalStorage error', e);
+    }
+  }, [sheetsWebhookUrl]);
 
   // Dynamic products list with live stock / "Ordered Finish" status
   const [products, setProducts] = useState(INITIAL_PRODUCTS);
@@ -172,9 +192,13 @@ export default function App() {
 
   // Checkout Success handler
   const handleOrderSuccess = (newOrder) => {
-    // 1. Add order
+    // 1. Add order to state
     setOrders((prev) => [newOrder, ...prev]);
-    // 2. Decrement slot capacity
+
+    // 2. Automatically log to Google Sheets / persistent spreadsheet ledger
+    logOrderToWebhook(newOrder, sheetsWebhookUrl);
+
+    // 3. Decrement slot capacity
     if (newOrder.timeSlot?.id) {
       setSlotCapacities((prev) => {
         const current = prev[newOrder.timeSlot.id] || { current: 0, max: 6 };
@@ -187,12 +211,18 @@ export default function App() {
         };
       });
     }
-    // 3. Clear cart
+    // 4. Clear cart
     setCartItems([]);
     setIsCheckoutOpen(false);
     setIsCartOpen(false);
-    // 4. Show confirmation modal
+    // 5. Show confirmation modal
     setConfirmedOrder(newOrder);
+  };
+
+  const handleSyncAllToSheets = async () => {
+    for (const ord of orders) {
+      await logOrderToWebhook(ord, sheetsWebhookUrl);
+    }
   };
 
   // Filter products from dynamic state (honors "Ordered Finish" status)
@@ -593,6 +623,9 @@ export default function App() {
         orders={orders}
         products={products}
         onToggleProductStock={handleToggleProductStock}
+        sheetsWebhookUrl={sheetsWebhookUrl}
+        setSheetsWebhookUrl={setSheetsWebhookUrl}
+        onSyncAllToSheets={handleSyncAllToSheets}
         onUpdateOrderStatus={(ref, status) => {
           setOrders((prev) =>
             prev.map((o) => (o.orderRef === ref ? { ...o, status } : o))
